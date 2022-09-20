@@ -1,0 +1,12 @@
+.Puntuacion{
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+}
+
+
+p{
+  font-size: 24px;
+  margin-top: 15px;
+}

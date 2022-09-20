@@ -2,18 +2,23 @@ import './App.css';
 import Boton from './components/Boton';
 import Contador from './components/Contador';
 import logoReact from './images/logoReact.png';
+import Puntuacion from './components/Puntuacion';
 import { useState } from 'react';
 
-function App() {
+let nombre;
+nombre=prompt('Nombre: ');    //Falta hacer que no se borre esto
 
+function App() {
+  
   const [numClics, setNumClics] = useState(0);
 
-  const manejarClic = () =>{
+  const manejarClic = () => {
     setNumClics(numClics + 1);
   };
 
   const reiniciarContador = () => {
     setNumClics(0);
+
   };
 
   return (
@@ -24,21 +29,30 @@ function App() {
           src={logoReact}
           alt='Logo de React'
         />
+
       </div>
       <div className='contenedor-contador'>
-
         <Contador 
         numClic={numClics} />
         <Boton 
-        texto='Clic'
+        texto='Clic 👍'
         tipoBoton={true}
         manejarClic={manejarClic} />
         <Boton 
-        texto='Reiniciar'
+        texto='Reiniciar 👍'
         tipoBoton={false}
         manejarClic={reiniciarContador} />
-        
+
       </div>
+    <div className='contenedor-puntuaciones'>
+       <h2 className='tituloPuntuaciones'>PUNTUACIONES</h2>
+      <Puntuacion 
+        name={nombre}
+        puntuacion={numClics}
+      />
+      
+    </div>
+
     </div>
   );
 }
